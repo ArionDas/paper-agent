@@ -14,6 +14,7 @@ client = OpenAI(
     api_key=OPENAI_API_KEY
 )
 
+## doesn't work
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
 ## Agent
