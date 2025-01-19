@@ -1,0 +1,7 @@
+lancedb 
+tantivy 
+pypdf 
+sqlalchemy
+phidata
+streamlit
+sentence-transformers
