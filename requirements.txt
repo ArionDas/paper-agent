@@ -5,3 +5,13 @@ sqlalchemy
 phidata
 streamlit
 sentence-transformers
+langchain
+langchain-community
+smolagents
+litellm
+datasets
+chromadb
+faiss-cpu
+pypdf
+langchain_huggingface
+transformers>=4.48.0
