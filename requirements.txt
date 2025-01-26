@@ -14,4 +14,12 @@ chromadb
 faiss-cpu
 pypdf
 langchain_huggingface
+langchain_aws
 transformers>=4.48.0
+pytest
+boto3
+praisonaiagents[knowledge]
+ollama
+qdrant-client
+langchain_ollama
+pdfplumber
