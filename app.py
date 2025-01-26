@@ -11,14 +11,14 @@ from constants import GROQ_API_KEY, QDRANT_API_KEY, QDRANT_URL, OPENAI_API_KEY
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=OPENAI_API_KEY
+    api_key="fake-key"
 )
 
 ## doesn't work
-os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+os.environ['OPENAI_API_KEY'] = "fake-key"
 
 ## Agent
-def paper_agent(user: str = "Arion", query: str = "Summarize the document"):
+def paper_agent(user: str = "Arion", query: str = "Summarize the document", uploaded_file=None):
     
     collection_name = "paper-agent"
     vector_db = Qdrant(
@@ -29,7 +29,7 @@ def paper_agent(user: str = "Arion", query: str = "Summarize the document"):
 
     ## knowledge base
     knowledge_base = PDFKnowledgeBase(
-        path="data/",
+        path=uploaded_file.name,
         ## QDrant is our vector database
         vector_db = vector_db,
         reader = PDFReader(chunk=True),
@@ -52,19 +52,23 @@ def main():
     
     st.title("Paper Agent")
     
-    pdf_file = st.file_uploader("Upload a PDF", type=["pdf"])
+    # File uploader for PDF
+    uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
+
+    if uploaded_file is not None:
+        # Display the uploaded file name
+        st.write("Uploaded File:", uploaded_file.name)
     
-    if pdf_file:
-        with open(os.path.join("data", "paper"), "wb") as f:
-            f.write(pdf_file.read())
-        st.success("PDF file received")
+        # Save the file to the current directory
+        with open(uploaded_file.name, "wb") as f:
+            f.write(uploaded_file.getbuffer())
 
 
     query = st.text_input("Ask a question about your document:")
 
     if query:
         with st.spinner("Indexing & Searching from the document..."):
-            response = paper_agent(user="Arion", query=query)
+            response = paper_agent(user="Arion", query=query, uploaded_file=uploaded_file)
             st.spinner("Done!")
             st.write(response)
             

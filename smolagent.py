@@ -35,15 +35,15 @@ model = HfApiModel()
 ## RAG
 
 ## Load the knowledge base
-knowledge_base = datasets.load_dataset("ariondas/research_papers")
-knowledge_base = knowledge_base.filter(lambda row: row["source"].startswith("huggingface/transformers"))
+# knowledge_base = datasets.load_dataset("ariondas/research_papers")
+# knowledge_base = knowledge_base.filter(lambda row: row["source"].startswith("huggingface/transformers"))
 
-source_docs = [
-    Document(page_content=doc["text"], metadata={"source": doc["source"].split("/")[1]})
-    for doc in knowledge_base
-]
+# source_docs = [
+#     Document(page_content=doc["text"], metadata={"source": doc["source"].split("/")[1]})
+#     for doc in knowledge_base
+# ]
 
-pdf_file_path = CONFIG["pdf_file_path"]
+pdf_file_path = "flash_attn.pdf"
 print(pdf_file_path)
 pdf_loader = PyPDFLoader(pdf_file_path)
 pdf_docs = pdf_loader.load()
@@ -127,7 +127,7 @@ managed_rag_agent = ManagedAgent(
 
 
 ## Web search tools
-@tool
+#@tool
 def visit_website(url: str) -> str:
     """Visits a webpage at the given URL and returns its content as a markdown string.
 
