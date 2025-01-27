@@ -20,6 +20,7 @@ I want you to follow these steps to come up with your response:\
     5) Finally, read the conclusion and limitations part to understand the shortcomings of the paper.\
 Please follow these steps to provide a response to the user's query.\
 Make sure to align your response with the user's context provided.\
+Just answer the user query with the context provided, no need to add any extra text.\
     
 Query: {query}
 Context: {context}
