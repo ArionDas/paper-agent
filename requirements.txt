@@ -12,6 +12,7 @@ litellm
 datasets
 chromadb
 faiss-cpu
+#faiss-gpu
 pypdf
 langchain_huggingface
 langchain_aws
@@ -23,3 +24,6 @@ ollama
 qdrant-client
 langchain_ollama
 pdfplumber
+langchain-google-vertexai
+llama-index
+llama-index-llms-groq
