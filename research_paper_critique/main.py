@@ -34,10 +34,10 @@ def main():
     ## Queries
     queries = [
         "What is the main contribution of this paper?",
-        # "What are the main experimental results in this paper?",
-        # "What is the evaluation metric used in this paper?",
-        # "What are the methodological innovations used in this paper?",
-        # "What are the potential limitations of this paper?",
+        "What are the main experimental results in this paper?",
+        "What is the evaluation metric used in this paper?",
+        "What are the methodological innovations used in this paper?",
+        "What are the potential limitations of this paper?",
     ]
     
     ## Run RAG chain

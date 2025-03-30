@@ -4,8 +4,8 @@ from langchain.schema.runnable import RunnablePassthrough
 
 def get_prompt(query, retriever):
     
-    context = retriever.invoke(query)
-    print(context)
+    context = retriever.get_relevant_documents(query)
+    # print(context)
     
     return f"""
     Analyze the research paper sections below to answer the question.

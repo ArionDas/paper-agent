@@ -27,3 +27,4 @@ pdfplumber
 langchain-google-vertexai
 llama-index
 llama-index-llms-groq
+rank_bm25
