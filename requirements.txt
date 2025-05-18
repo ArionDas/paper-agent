@@ -27,4 +27,12 @@ pdfplumber
 langchain-google-vertexai
 llama-index
 llama-index-llms-groq
+groq
 rank_bm25
+cohere
+langchain-cohere
+flask
+langchain-unstructured
+PyMuPDF
+pytesseract
+Pillow
