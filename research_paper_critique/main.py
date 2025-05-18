@@ -13,6 +13,7 @@ from vector_store import get_vector_store
 from llm import get_llm
 from chunking import split_recursive_text
 from prompt import get_prompt
+from reranker import get_Cohere_Reranker
 
 
 def main():
@@ -21,12 +22,16 @@ def main():
     
     ## Load pdf
     text = split_recursive_text(pdf_path)
+    print(text)
     
     ## Embedding Model
     embedding_model = get_embeddings_model()
     
     ## Vector Store
     vector_store, retriever = get_vector_store(text, embedding_model)
+    
+    ## Reranker
+    compression_retriever = get_Cohere_Reranker(retriever)
     
     ## LLM
     llm = get_llm()
@@ -43,7 +48,7 @@ def main():
     ## Run RAG chain
     for query in queries:
         
-        prompt = get_prompt(query, retriever)
+        prompt = get_prompt(text, query, retriever, compression_retriever)
         response = llm.complete(prompt)
         
         print("Question: ", query)

@@ -171,3 +171,7 @@ cython_debug/
 .pypirc
 constants.py
 *.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif

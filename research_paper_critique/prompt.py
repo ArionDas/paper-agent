@@ -1,10 +1,19 @@
+import cohere
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 
 
-def get_prompt(query, retriever):
+def get_prompt(texts, query, retriever, compression_retriever):
     
-    context = retriever.get_relevant_documents(query)
+    ## without using the reranker
+    # context = retriever.invoke(query)
+    
+    ## using the reranker
+    # context = compression_retriever.invoke(query)
+    context = compression_retriever.invoke(
+        f"{query}",
+    )
+    
     # print(context)
     
     return f"""
@@ -17,6 +26,8 @@ def get_prompt(query, retriever):
     But, try to get the answer within the context of the paper.
     
     Context: {context}
+    
+    Don't make the answer too long, but also don't make it too short. Just mention the answer exact to the point. No unnecessary details required.
     """
 
 # InferencePrompt = PromptTemplate.from_template(
