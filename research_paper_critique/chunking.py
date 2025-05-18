@@ -69,7 +69,7 @@ def split_recursive_text(resume_path):
     text_splitter = RecursiveCharacterTextSplitter(
         separators=["\n"],
         chunk_size = 1000,
-        chunk_overlap=300,
+        chunk_overlap=500,
     )
 
     texts = text_splitter.split_documents(documents)

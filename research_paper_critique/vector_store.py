@@ -23,7 +23,7 @@ def get_vector_store(text, embedding_model):
     
     faiss_retriever = vector_store.as_retriever(
         search_type = "similarity", ## mmr search type is more expensive : O(n) + O(k^2) vs O(n)
-        search_kwargs = {"k": 5}
+        search_kwargs = {"k": 10}
     )
     
     bm25_sparse_retriever = BM25Retriever.from_documents(text)
