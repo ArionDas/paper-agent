@@ -89,6 +89,19 @@ def user_chat_application(file_path, reranker, embedding_model, vector_store, re
 # --- Streamlit UI ---
 
 def main():
+    
+    st.set_page_config(layout='wide')
+    # Sidebar inputs
+    with st.sidebar:
+        st.header("Configuration")
+        co_api_key = st.text_input("Cohere API Key", type='password')
+        groq_api_key = st.text_input("Groq API Key", type='password')
+        if not (co_api_key and groq_api_key):
+            st.warning("Please enter both API keys.")
+            
+    os.environ['COHERE_API_KEY'] = co_api_key
+    os.environ['GROQ_API_KEY'] = groq_api_key
+    
     st.title("Research Paper Analyzer")
     uploaded_file = st.file_uploader("Upload a PDF file", type=['pdf'])
 
