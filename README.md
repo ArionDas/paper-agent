@@ -1,5 +1,5 @@
 <h1 align='center'> ✨ PAPER AGENT ✨ </h1>
-<h3 align='center'> A lightweight AI agent which reads and summarizes research papers for you.</h2>
+<h3 align='center'> An advanced RAG application which reads and analyzes research papers for you.</h2>
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/7364125e-4c97-49b4-916d-f6f28d03c7fe"/>
@@ -201,4 +201,4 @@ def user_chat_application(file_path, reranker, embedding_model, vector_store, re
 ```
 
 ## Live Demo
-https://youtu.be/5fMuMmOguSg
+[Video](https://youtu.be/8qBiHGUsJgg)
