@@ -6,9 +6,6 @@ def get_embeddings_model():
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    ## Google
-    # embedding_model = VertexAIEmbeddings(model="text-embedding-004")
-    
     ## HF
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
     
