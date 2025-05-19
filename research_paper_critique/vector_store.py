@@ -6,16 +6,6 @@ from langchain.retrievers.ensemble import EnsembleRetriever
 
 def get_vector_store(text, embedding_model):
     
-    # index = faiss.IndexFlatL2(len(embedding_model.embed_query("hello world")))
-    # vector_store = FAISS(
-    #     embedding_function = embedding_model,
-    #     index = index,
-    #     docstore = InMemoryDocstore(),
-    #     index_to_docstore_id = {}
-    # )
-    
-    # vector_store.add_documents(text)
-    
     vector_store = FAISS.from_documents(
         text,
         embedding_model,

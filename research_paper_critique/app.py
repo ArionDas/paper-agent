@@ -13,7 +13,6 @@ IMAGE_FOLDER = 'extracted_images'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(IMAGE_FOLDER, exist_ok=True)
 
-# --- Helper functions ---
 
 def validate_file(file) -> bool:
     """
@@ -33,7 +32,7 @@ def process_paper(pdf_path):
     from prompt import get_prompt
     from reranker import get_Cohere_Reranker
 
-    # Extract full-text chunks
+    # Extracting text chunks
     texts = split_recursive_text(pdf_path)
 
     if not texts:
@@ -86,12 +85,11 @@ def user_chat_application(file_path, reranker, embedding_model, vector_store, re
         st.session_state['conversation_history'] = []
         st.success("Chat session ended.")
 
-# --- Streamlit UI ---
 
 def main():
     
     st.set_page_config(layout='wide')
-    # Sidebar inputs
+    # API Key inputs
     with st.sidebar:
         st.header("Configuration")
         co_api_key = st.text_input("Cohere API Key", type='password')
@@ -116,7 +114,6 @@ def main():
             f.write(uploaded_file.getbuffer())
         st.success(f"Uploaded: {filename}")
 
-        # Stacked buttons: Analyze then Chat
         if st.button("Analyze PDF", key="analyze_btn"):
             with st.spinner('Analyzing... this may take a while'):
                 try:

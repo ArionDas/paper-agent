@@ -36,3 +36,4 @@ langchain-unstructured
 PyMuPDF
 pytesseract
 Pillow
+tesseract
